@@ -1,72 +1,39 @@
 body {
   margin: 0;
-  background: radial-gradient(circle, #020617, #000);
+  background: #020617;
   color: white;
   font-family: Arial, sans-serif;
-  overflow: hidden;
-}
-
-/* pantalla inicio */
-#startScreen {
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 22px;
-  background: black;
-}
-
-/* escena */
-.hidden {
-  display: none;
-}
-
-#scene {
-  position: relative;
-  width: 100%;
-  height: 100vh;
   text-align: center;
 }
 
-/* titulo */
+/* título */
 #title {
   margin-top: 40px;
-  font-size: 26px;
-  opacity: 0;
-  animation: fadeIn 2s forwards;
+  font-size: 24px;
 }
 
 /* texto */
 #story {
-  margin-top: 20px;
-  padding: 0 20px;
+  margin: 20px;
   font-size: 18px;
   min-height: 60px;
+  padding: 0 15px;
 }
 
 /* flores */
 .flower {
-  position: absolute;
+  display: inline-block;
   font-size: 22px;
-  animation: bloom 1.2s ease forwards;
+  margin: 5px;
+  opacity: 0;
+  transform: scale(0);
+  animation: bloom 0.8s forwards;
 }
 
-/* animaciones */
+/* animación */
 @keyframes bloom {
-  from {
-    transform: scale(0);
-    opacity: 0;
-  }
   to {
+    opacity: 1;
     transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
   }
 }
