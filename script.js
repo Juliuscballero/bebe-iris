@@ -1,7 +1,7 @@
 var story = document.getElementById("story");
 var garden = document.getElementById("garden");
 
-// función texto
+// mostrar texto directo (sin fallos)
 function showText(text) {
   story.innerHTML = text;
 }
@@ -16,9 +16,9 @@ function addFlowers(n) {
   }
 }
 
-// secuencia simple (SIN animaciones complejas)
+// secuencia
 setTimeout(function() {
-  showText("No es solo un detalle...");
+  showText("Para ti, Iris 💛");
 }, 1000);
 
 setTimeout(function() {
@@ -26,21 +26,29 @@ setTimeout(function() {
 }, 2000);
 
 setTimeout(function() {
-  showText("Es una forma de decirte que me importas.");
+  showText("No es solo un detalle...");
 }, 4000);
 
 setTimeout(function() {
-  addFlowers(10);
-}, 5000);
-
-setTimeout(function() {
-  showText("Hoy 14… otro mes contigo 💛");
+  showText("Es una forma de decirte que lo que siento por ti es real.");
 }, 7000);
 
 setTimeout(function() {
-  showText("Y quiero seguir contigo 🌷");
-}, 10000);
+  addFlowers(10);
+}, 9000);
 
 setTimeout(function() {
-  showText("Gracias por estar conmigo, Iris 💛");
-}, 13000);
+  showText("Y aunque hoy no sea 14...");
+}, 11000);
+
+setTimeout(function() {
+  showText("los 14 reafirmamos un mes más en el conteo de una vida juntos 💛");
+}, 14000);
+
+setTimeout(function() {
+  addFlowers(10);
+}, 17000);
+
+setTimeout(function() {
+  showText("Te amo, rabanito 🌷");
+}, 20000);
