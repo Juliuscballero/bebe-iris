@@ -1,31 +1,7 @@
-const startScreen = document.getElementById("startScreen");
-const scene = document.getElementById("scene");
-const title = document.getElementById("title");
 const story = document.getElementById("story");
 const garden = document.getElementById("garden");
 
-// iniciar (necesario para iPhone)
-startScreen.addEventListener("click", () => {
-  startScreen.style.display = "none";
-  scene.classList.remove("hidden");
-  startExperience();
-});
-
-// crear flor
-function createFlower(x, y, delay) {
-  setTimeout(() => {
-    const flower = document.createElement("div");
-    flower.className = "flower";
-    flower.innerText = "🌷";
-
-    flower.style.left = x + "px";
-    flower.style.top = y + "px";
-
-    garden.appendChild(flower);
-  }, delay);
-}
-
-// texto animado
+// escribir texto tipo máquina
 function typeText(text, speed = 40) {
   story.innerHTML = "";
   let i = 0;
@@ -40,71 +16,53 @@ function typeText(text, speed = 40) {
   }, speed);
 }
 
-// dibujar IRIS centrado
-function drawName() {
-  const name = "IRIS";
-
-  const centerX = window.innerWidth / 2;
-  const startX = centerX - (name.length * 25);
-  const startY = window.innerHeight / 3;
-
-  let delay = 0;
-
-  for (let i = 0; i < name.length; i++) {
-    setTimeout(() => {
-
-      const letter = document.createElement("div");
-      letter.innerText = name[i];
-
-      letter.style.position = "absolute";
-      letter.style.left = startX + i * 50 + "px";
-      letter.style.top = startY + "px";
-      letter.style.fontSize = "42px";
-      letter.style.fontWeight = "bold";
-      letter.style.color = "#facc15";
-      letter.style.textShadow = "0 0 10px #facc15";
-
-      garden.appendChild(letter);
-
-      // flores alrededor
-      for (let j = 0; j < 5; j++) {
-        createFlower(
-          startX + i * 50 + (Math.random() * 40 - 20),
-          startY + (Math.random() * 60 - 30),
-          delay + j * 120
-        );
-      }
-
-    }, delay);
-
-    delay += 400;
-  }
+// agregar flores
+function addFlowers(count, delay) {
+  setTimeout(() => {
+    for (let i = 0; i < count; i++) {
+      const f = document.createElement("span");
+      f.className = "flower";
+      f.innerText = "🌷";
+      garden.appendChild(f);
+    }
+  }, delay);
 }
 
-// experiencia completa
-function startExperience() {
-
-  title.innerText = "Para Iris 💛";
-
-  drawName();
+// secuencia emocional
+function start() {
 
   setTimeout(() => {
     typeText("No es solo un detalle...");
-  }, 2000);
+  }, 1000);
+
+  addFlowers(10, 2000);
 
   setTimeout(() => {
     typeText("Es una forma de decirte que me importas de verdad.");
-  }, 6000);
+  }, 5000);
+
+  addFlowers(10, 6000);
 
   setTimeout(() => {
     typeText("Cada momento contigo vale muchísimo para mí.");
-  }, 10000);
+  }, 9000);
+
+  addFlowers(10, 10000);
 
   setTimeout(() => {
-    typeText("Y quiero seguir construyendo algo bonito contigo 🌷");
-  }, 14000);
+    typeText("Hoy 14… otro mes contigo 💛");
+  }, 13000);
+
+  addFlowers(8, 14000);
 
   setTimeout(() => {
-    typeText("Feliz otro mes juntos 💛");
-  }, 18000);
+    typeText("Y la neta, no quiero que esto se acabe nunca 🌷");
+  }, 17000);
+
+  setTimeout(() => {
+    typeText("Gracias por estar conmigo, Iris 💛");
+  }, 21000);
 }
+
+// cargar seguro en iPhone
+document.addEventListener("DOMContentLoaded", start);
